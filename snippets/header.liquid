@@ -1,0 +1,45 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-center vcenter">
+        <ul class="list-inline">
+          <li>
+            <a href="/account">
+              <p class="text-center"><i class="lnr lnr-user"></i></p>
+              <p class="header-link">MY ACCOUNT</p>
+            </a>
+          </li>
+          <li>
+            <a href="/cart">
+              <p class="text-center"><i class="lnr lnr-cart"></i></p>
+              <p class="header-link">CART (<span id="cart-count">{{cart.item_count}}</span>)</p>
+            </a>
+          </li>
+        </ul>
+      </div><!--
+      --><div class="col-md-4 text-center vcenter">
+        <div id="logo">
+          <a href="/">
+            <img src="//cdn.shopify.com/s/files/1/1396/0785/t/9/assets/logo.png?3503031584591550272" />
+          </a>
+        </div>
+      </div><!--
+      --><div class="col-md-4 text-center vcenter">
+          <form action="/pages/search-results" method="get" class="header-bar__search-form clearfix" role="search">
+            <div id="custom-search-input">
+              <div class="input-group col-md-12">
+                <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}"
+                  class="form-control input-lg" aria-label="{{ 'general.search.placeholder' | t }}">
+                  <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" type="button">
+                      <i class="lnr lnr-magnifier"></i>
+                    </button>
+                  </span>
+              </div>
+            </div>
+          </form>
+
+      </div>
+    </div>
+  </div>
+</header>

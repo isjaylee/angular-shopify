@@ -1,0 +1,14 @@
+<script>
+  window.BestBuyBeads = window.BestBuyBeads || {};
+  window.BestBuyBeads.collection = '{{collection.handle}}';
+</script>
+
+{{ 'ng.bestbuybeads.module.js' | asset_url | script_tag }}
+{{ 'ng.directives.js' | asset_url | script_tag }}
+{{ 'ng.collection.controller.js' | asset_url | script_tag }}
+{{ 'ng.collection.model.js' | asset_url | script_tag }}
+{{ 'ng.product.model.js' | asset_url | script_tag }}
+
+<div data-ng-app="bestbuybeads" data-ng-controller="CollectionController as vm">
+  <div data-ng-include="'{{'collection.html' | asset_url}}'"></div>
+</div>

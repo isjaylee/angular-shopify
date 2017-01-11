@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="page-header">
+    <h1>{{page.handle}}</h1>
+  </div>
+  <div class="col-md-8">
+    {% for link in linklists[page.handle].links %}
+      <div class="row idea">
+        <div class="col-md-5">
+          <a href={{link.url}}>
+            {% assign collection = link.object %}
+            {% if collection.image %}
+              <img src="{{ collection | img_url: 'master' }}" alt="{{ link.title | escape }}" class="img-responsive">
+            {% else %}
+              {% assign product = collection.products.first %}
+              <img src="{{ product | img_url: 'master' }}" alt="{{ link.title | escape }}" class="img-responsive">
+            {% endif %}
+          </a>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+          <a href={{link.url}}>
+            <div class="idea-name">{{collection.title}}</div>
+          </a>
+          <div class="idea-description">{{collection.description | escape | truncate: 140}}</div>
+          <div class="idea-goto-btn">
+            <a href={{link.url}} class="btn btn-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="col-md-4 idea-page-sidebar">
+    <p>Most Popular Ideas</p>
+    <ul class="list-unstyled">
+      <li>Bracelets</li>
+      <li>Bracelets</li>
+      <li>Bracelets</li>
+      <li>Bracelets</li>
+      <li>Bracelets</li>
+    </ul>
+  </div>
+</div>

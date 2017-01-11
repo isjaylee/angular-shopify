@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">{{page.handle}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    {% for link in linklists[page.handle].links %}
+      <div class="col-md-3 portfolio-item">
+        {% assign linked_page = link.object %}
+        {% assign have_image = true %}
+        {% assign src = linked_page.content | split: 'src="' %}
+        {% assign src = src[1] | split: '"' | first %}
+        {% capture image_suffix %}_large.{% endcapture %}
+        <a href={{link.url}}>
+          {% if have_image %}
+            <img src="{{ src }}" alt="{{ link.title | escape }}" class="img-responsive" />
+          {% else %}
+            <img src="{{ link.title | handle | append: '_' | append: image_size | append: '.png' | file_url }}" alt="{{ link.title | escape }}" />
+          {% endif %}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+
+  <hr>
+
+  <div class="row text-center">
+    <div class="col-lg-12">
+      <ul class="pagination">
+        <li>
+          <a href="#">«</a>
+        </li>
+        <li class="active">
+          <a href="#">1</a>
+        </li>
+        <li>
+          <a href="#">2</a>
+        </li>
+        <li>
+          <a href="#">3</a>
+        </li>
+        <li>
+          <a href="#">4</a>
+        </li>
+        <li>
+          <a href="#">5</a>
+        </li>
+        <li>
+          <a href="#">»</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <footer>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright © Your Website 2014</p>
+      </div>
+    </div>
+  </footer>
+</div>

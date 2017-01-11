@@ -1,0 +1,16 @@
+{% layout none %}
+
+{
+  "links": [{
+    {% for link in linklists[page.handle].links %}
+      "parent": "{{link.title}}",
+      "children": [
+        {% assign child_list_handle = link.title | handle %}
+        {% for childlink in linklists[child_list_handle].links %}
+          "{{childlink.title}}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }{% unless forloop.last %},{ {% endunless %}
+    {% endfor %}
+  ]
+}

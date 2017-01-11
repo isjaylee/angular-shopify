@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="page-header text-center">
+    <h1>{{vm.collection.title}}</h1>
+  </div>
+  <div class="idea">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="idea-img">
+          <img ng-src="{{vm.collection.image.src}}" class="img-responsive">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <p class="idea-body" ng-bind-html="vm.collection.description|formatToHtml"></p>
+      </div>
+    </div>
+  </div>
+  <hr style="border-top: 2px solid #333;">
+  <div class="idea-items-header">
+    <h3>Items You'll Need</h3>
+  </div>
+  <hr style="border-top: 2px solid #333;">
+    <div class="row collection-product" ng-repeat="product in vm.products">
+      <div class="col-md-2">
+        <img ng-src="{{product.images[0].src}}" alt="" class="img-responsive">
+      </div>
+      <div class="col-md-7 col-md-offset-1">
+        <div class="product-name">{{product.title}}</div>
+        <div class="product-description" ng-bind-html="product.body_html|formatToHtml"></div>
+      </div>
+      <div class="col-md-2">
+        <div class="add-to-cart text-center">
+          <p>
+          <span class="current-price" price="product.variants[0].price"></span>
+          <span class="regular-price" ng-if="product.variants[0].compare_at_price > 0" price="product.variants[0].compare_at_price"></span>
+          </p>
+          <span class="inventory-stock">{{product.variants[0].inventory_quantity}} in stock</span>
+          <div class="card-quantity">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-number" ng-disabled="product.add_cart_quantity <= 1" ng-click="vm.decrement(product)">
+                  <span class="fa fa-minus"></span>
+                </button>
+              </span>
+              <input type="text" class="form-control text-center" ng-model="product.add_cart_quantity" maxlength="3">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-number" ng-click="vm.increment(product)">
+                  <span class="fa fa-plus"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+          <div class="add-to-cart-btn">
+            <a href="" class="btn btn-primary" ng-click="vm.addToCart(product)">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

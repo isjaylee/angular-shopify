@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div id="cart">
+        {% if cart.item_count > 0 %}
+          <form action="/cart" method="post" id="cart" class="cart">
+            <table id="cart" class="table table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th style="width:50%"></th>
+                  <th style="width:10%">Price</th>
+                  <th style="width:8%">Quantity</th>
+                  <th style="width:22%" class="text-center">Subtotal</th>
+                  <th style="width:10%"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in cart.items %}
+                  <tr>
+                    <td>
+                      <div class="row">
+                        <a href={{item.url}}>
+                          <div class="col-sm-4 hidden-xs">{{ item.image | img_url: 'small' | img_tag }}</div>
+                        </a>
+                        <div class="col-sm-8">
+                          <a href={{item.url}}>
+                            <h4 class="nomargin">{{item.title}}</h4>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                    <td>{{item.price | money}}</td>
+                    <td class="text-center">
+                      <input type="number" class="form-control text-center" name="updates[]" id="updates_{{ item.variant.id }}" value={{ item.quantity }}></td>
+                    <td class="text-center">{{ item.line_price | money }}</td>
+                    <td class="actions">
+                      <a href="/cart/change/{{item.variant.id}}?quantity=0" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+              <tfoot>
+                <tr class="visible-xs">
+                  <td class="text-center"><strong>Total {{cart.total_price | money}}</strong></td>
+                </tr>
+                <tr>
+                  <td><a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                  <td colspan="2" class="hidden-xs"></td>
+                  <td class="hidden-xs text-center"><strong>Total {{cart.total_price | money}}</strong></td>
+                  <td>
+                    <button type="submit" class="btn btn-default btn-block" value="Update quantities">Update <i class="fa fa-angle-right"></i></button>
+                    <button type="submit" class="btn btn-success btn-block" name="checkout">Checkout <i class="fa fa-angle-right"></i></button>
+                    </td>
+                </tr>
+              </tfoot>
+            </table>
+          </form>
+        {% else %}
+          <div class="jumbotron text-center">
+            <p>Your cart is empty!</p>
+            <a href="/" class="btn btn-warning">Continue Shopping</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+

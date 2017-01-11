@@ -1,0 +1,158 @@
+[
+  {
+    "name": "General",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logo Options"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background (example)",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color (example)",
+        "default": "#cccccc"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_logo",
+        "label": "Use Custom Logo?"
+      },
+      {
+        "type": "image",
+        "id": "logo.png",
+        "label": "Custom Logo",
+        "max-width": 940,
+        "max-height": 300
+      },
+      {
+        "type": "paragraph",
+        "content": "Maximum logo dimensions are 940px wide by 300px high.Your uploaded file will be resized to fit within those constraints.Need a full-width banner? Upload an image with a width of 940px, and a height of 300px or less."
+      }
+    ]
+  },
+  {
+    "name": "Home Page Slider",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Home Page Slider"
+      },
+      {
+        "type": "image",
+        "id": "slider1.jpg",
+        "label": "Slider 1"
+      },
+      {
+        "type": "image",
+        "id": "slider2.jpg",
+        "label": "Slider 2"
+      },
+      {
+        "type": "image",
+        "id": "slider3.jpg",
+        "label": "Slider 3"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Footer menu"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_quicklinks_linklist",
+        "label": "Footer Menu Quick Links"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_info_linklist",
+        "label": "Info Links"
+      },
+      {
+        "type": "header",
+        "content": "Social media"
+      },
+      {
+        "type": "text",
+        "id": "social_etsy_link",
+        "label": "Etsy",
+        "info": "https:\/\/etsy.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter",
+        "info": "https:\/\/twitter.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook",
+        "info": "https:\/\/www.facebook.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest",
+        "info": "https:\/\/www.pinterest.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_google_plus_link",
+        "label": "Google+",
+        "info": "https:\/\/plus.google.com\/+shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram",
+        "info": "https:\/\/instagram.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "Tumblr",
+        "info": "http:\/\/shopify.tumblr.com"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "YouTube",
+        "info": "https:\/\/www.youtube.com\/user\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "Vimeo",
+        "info": "https:\/\/vimeo.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_fancy_link",
+        "label": "Fancy",
+        "info": "http:\/\/fancy.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_rss_link",
+        "label": "RSS",
+        "info": "http:\/\/store.myshopify.com\/blogs\/blogname.atom"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action",
+        "label": "MailChimp form action URL",
+        "info": "[Find your MailChimp form action URL](https:\/\/docs.shopify.com\/manual\/configuration\/store-customization\/communicating-with-customers\/accounts-and-newsletters\/get-a-mailchimp-form-action-url)."
+      }
+    ]
+  }
+]
