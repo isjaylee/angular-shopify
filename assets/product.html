@@ -1,24 +1,17 @@
+<div class="top-header">
+  <div class="container">
+    <div class="col-md-12">
+      <span class="top-header-text">{{vm.product.title}}</span>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="container">
   <div class="product-container">
     <div class="row">
-      <div class="col-md-3">
-        <div class="filter-section-header">
-          Shop by
-        </div>
-      <div class="filter-options" ng-repeat="link in vm.sidebarLinks">
-        <div class="filter-option">
-          <a href="" ng-click="showChildLinks = !showChildLinks">
-            {{link.parent}} <span class="pull-right"><i ng-class="(showChildLinks) ? 'fa fa-angle-down' : 'fa fa-angle-right'"></i></span>
-          </a>
-        </div>
-        <div class="filter-nested-options" ng-class="{'hidden' : showChildLinks}">
-          <ul class="list-unstyled">
-            <li class="filter-nested-option" ng-repeat="childLink in link.children"><i class="fa fa-caret-right"></i> {{childLink}}</li>
-          </ul>
-        </div>
-      </div>
-      </div>
-      <div class="col-md-9" style="padding-left: 20px;">
+      <div class="col-md-12">
         <div class="row">
           <div class="col-md-5">
             <img ng-src="{{vm.product.featured_image}}" alt="{{vm.product.handle}} image" class="img-responsive">
@@ -26,32 +19,32 @@
           <div class="col-md-7">
             <div class="product-name">{{vm.product.title}}</div>
             <span class="current-price" price="vm.product.variants[0].price"></span>
-            <span class="regular-price" ng-if="vm.product.variants[0].compare_at_price > 0" price="product.variants[0].compare_at_price"></span>
+            <span class="regular-price" ng-if="vm.product.variants[0].compare_at_price > 0" price="vm.product.variants[0].compare_at_price"></span>
 
             <div class="product-social-media">
             </div>
 
             <div class="add-to-cart">
               <div class="row">
-                <div class="col-md-4 text-center">
+                <div class="col-md-2 text-center">
                   <span class="inventory-stock">{{vm.product.variants[0].inventory_quantity}} in stock</span>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-4">
-              <div class="input-group">
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-default btn-number" ng-disabled="vm.addCartQuantity <= 1" ng-click="vm.decrement()">
-                    <span class="fa fa-minus"></span>
-                  </button>
-                </span>
-                <input type="text" class="form-control text-center" ng-model="vm.addCartQuantity" maxlength="3">
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-default btn-number" ng-click="vm.increment()">
-                    <span class="fa fa-plus"></span>
-                  </button>
-                </span>
-              </div>
+                <div class="col-md-2">
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default btn-number" ng-disabled="vm.addCartQuantity <= 1" ng-click="vm.decrement()">
+                        <span class="fa fa-minus"></span>
+                      </button>
+                    </span>
+                    <input type="text" class="form-control text-center" ng-model="vm.addCartQuantity" maxlength="3">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default btn-number" ng-click="vm.increment()">
+                        <span class="fa fa-plus"></span>
+                      </button>
+                    </span>
+                  </div>
                 </div>
                 <div class="col-md-8">
                   <a href="" class="btn btn-primary" ng-click="vm.addToCart()">Add to Cart</a>

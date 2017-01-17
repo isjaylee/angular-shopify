@@ -15,6 +15,14 @@
               <p class="header-link">CART (<span id="cart-count">{{cart.item_count}}</span>)</p>
             </a>
           </li>
+          {% if customer %}
+          <li>
+            <a href="/account/logout">
+              <p class="text-center"><i class="fa fa-sign-out"></i></p>
+              <p class="header-link">LOGOUT</p>
+            </a>
+          </li>
+          {% endif %}
         </ul>
       </div><!--
       --><div class="col-md-4 text-center vcenter">
@@ -38,7 +46,6 @@
               </div>
             </div>
           </form>
-
       </div>
     </div>
   </div>

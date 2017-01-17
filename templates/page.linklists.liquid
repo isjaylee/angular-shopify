@@ -1,16 +1,23 @@
 {% layout none %}
 
 {
-  "links": [{
+  "links": [
     {% for link in linklists[page.handle].links %}
+    {
       "parent": "{{link.title}}",
       "children": [
         {% assign child_list_handle = link.title | handle %}
         {% for childlink in linklists[child_list_handle].links %}
-          "{{childlink.title}}"{% unless forloop.last %},{% endunless %}
+          {% assign childlink_object = childlink.object %}
+          {% assign childlink_handle = childlink_object.handle %}
+
+          {% if childlink.type == "collection_link" %}
+            {{collections[childlink_handle] | json}} {% unless forloop.last %},{% endunless %}
+          {% endif %}
+
         {% endfor %}
       ]
-    }{% unless forloop.last %},{ {% endunless %}
+    }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ]
 }

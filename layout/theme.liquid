@@ -30,8 +30,11 @@
     {{ 'style.scss.css' | asset_url | stylesheet_tag }}
 
     {{ 'angular.js' | asset_url | script_tag }}
+    {{ 'ui-bootstrap-tpls-2.4.0.js' | asset_url | script_tag }}
     {{ 'jquery.js' | asset_url | script_tag }}
     <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+
 </head>
 <body>
     {% include 'header' %}

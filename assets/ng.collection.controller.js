@@ -7,19 +7,27 @@
     function($http, $window,$location, Collection, Product, toastr) {
       var vm = this;
       vm.collection = $window.BestBuyBeads.collection;
+      vm.collectionTitle = $window.BestBuyBeads.collectionTitle;
       vm.products = [];
       vm.quantity = 1;
+
       vm.increment = increment;
       vm.decrement = decrement;
       vm.addToCart = addToCart;
+
       vm.sidebarLinks = [];
       vm.goTo = goTo;
+
+      // PAGINATION
       vm.page = parseInt(location.search.substring(1).split('page=')[1]);
       vm.currentPage = vm.page || 1;
       vm.pageRange = [vm.currentPage - 2, vm.currentPage - 1, vm.currentPage];
       vm.nextPage = nextPage;
       vm.previousPage = previousPage;
       vm.lastPage = 0;
+
+      vm.filter = {};
+      vm.filterProducts = filterProducts;
 
       // Get the collection filtered by tags.
       // Example: /collections/all/silver+6mm will return all
@@ -28,6 +36,7 @@
 
       getProducts();
       getSidebar();
+      getFilters();
 
       function getProducts() {
         Collection.getProducts(vm.collection, vm.page, null, tagFilter).then(
@@ -47,6 +56,16 @@
             vm.sidebarLinks = response.data.links;
           }
         );
+      }
+
+      function getFilters() {
+        var tagFilter = window.location.pathname.split('/').filter(Boolean)[2];
+        if (!_.isEmpty(tagFilter)) {
+          tagFilter = tagFilter.split('+');
+          _.each(tagFilter, function(f) {
+            vm.filter[f] = true;
+          });
+        }
       }
 
       function showMorePagination() {
@@ -99,6 +118,16 @@
             toastr.success(`${product.title} was added to your cart.`, 'Success!');
           }
         );
+      }
+
+      function filterProducts(filters) {
+        var keys = Object.keys(filters);
+
+        var filtered = keys.filter(function(key) {
+          return filters[key];
+        });
+        var finalFilters = filtered.join('+');
+        return $window.location.href = `/collections/${vm.collection}/${finalFilters}`;
       }
 
     }]);

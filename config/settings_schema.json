@@ -47,16 +47,6 @@
         "type": "image",
         "id": "slider1.jpg",
         "label": "Slider 1"
-      },
-      {
-        "type": "image",
-        "id": "slider2.jpg",
-        "label": "Slider 2"
-      },
-      {
-        "type": "image",
-        "id": "slider3.jpg",
-        "label": "Slider 3"
       }
     ]
   },
